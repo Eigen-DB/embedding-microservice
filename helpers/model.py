@@ -7,8 +7,8 @@ def perform_inference(inference_client: InferenceClient, model_type: str, data: 
             text=data
         )
     elif model_type == "image":
-        pass
+        raise Exception("image model type not yet supported")
     elif model_type == "video":
-        pass
+        raise Exception("video model type not yet supported")
     else:
         raise Exception("invalid model type") # validate .env at startup
