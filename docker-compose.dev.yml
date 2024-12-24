@@ -6,19 +6,8 @@ services:
     ports:
       - "8000:8000"
     command: ["fastapi", "dev", "--host", "0.0.0.0", "run.py"]
+    restart: always
     volumes:
       - ./:/app
-    environment:
-      - EIGEN_DB_INSTANCE_URL=http://eigen_db:8080
-
-  eigen_db:
-    image: ryanawad/eigendb:latest
-    ports:
-      - "8080:8080"
-    environment:
-      - GIN_MODE=release
-      - TEST_MODE=0
-    restart: always
-
 
     
