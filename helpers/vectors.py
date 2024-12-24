@@ -10,11 +10,11 @@ def insert(vector: np.ndarray, id: int, api_key: str) -> Response:
     res = put(
         url=EIGENDB_ENDPOINT + "/vector/insert",
         data=json.dumps({
-        "vector": {
-            "embedding": vector.tolist(),
-            "id": id
-        }
-    }),
+            "vector": {
+                "embedding": vector.tolist(),
+                "id": id
+            }
+        }),
         headers={
             "Content-Type": "application/json",
             "X-Eigen-API-Key": api_key
