@@ -7,6 +7,7 @@ from fastapi import Request
 from fastapi.responses import JSONResponse
 from starlette.responses import StreamingResponse as Response
 from routes import upload
+from routes import bulk_upload
 from typing import Callable
 from typing import Awaitable
 from dotenv import load_dotenv
@@ -50,5 +51,6 @@ async def validate_api_key(request: Request, call_next: Callable[[Request], Awai
 
 api_v1_router = APIRouter(prefix="/api/v1")
 api_v1_router.include_router(upload.router)
+api_v1_router.include_router(bulk_upload.router)
 
 app.include_router(api_v1_router)
